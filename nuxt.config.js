@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+require('dotenv').config()
 export default {
   mode: 'universal',
   /*
@@ -30,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['plugins/vuetify', 'plugins/contentful'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -39,7 +39,8 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Nuxt.js modules
@@ -48,6 +49,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
   ],
+  env: {
+    // contentful
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -78,6 +85,7 @@ export default {
    ** Build configuration
    */
   build: {
+    transpile: ['vuetify/lib'], // 追記
     /*
      ** You can extend webpack config here
      */
