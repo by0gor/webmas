@@ -13,9 +13,9 @@
           >
             <v-card max-width="400" class="mx-auto">
               <v-img
-                :src="post.fields.image.fields.file.url"
-                :alt="post.fields.image.fields.title"
-                :aspect-ratio="16 / 9"
+                :src="setEyeCatch(post).url"
+                :alt="setEyeCatch(post).title"
+                :aspect-ratio="40 / 21"
                 max-height="200"
                 class="white--text"
               >
@@ -36,7 +36,7 @@
 
               <v-card-actions>
                 <v-spacer />
-                <v-btn text color="primary">
+                <v-btn text color="primary" :to="linkTo(post)">
                   この記事をみる
                 </v-btn>
               </v-card-actions>
@@ -52,9 +52,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 
 export default {
+  computed: {
+    ...mapGetters(['setEyeCatch']), // 追記
+    linkTo: () => (obj) => {
+      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
+    }
+  },
   async asyncData({ env }) {
     let posts = []
     await client
