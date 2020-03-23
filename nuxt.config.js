@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
+const client = require('./plugins/contentful').default
+
 export default {
   mode: 'universal',
   /*
@@ -79,6 +81,21 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+  generate: {
+    routes() {
+      return Promise.all([
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        })
+      ]).then(([posts]) => {
+        return [
+          ...posts.items.map((post) => {
+            return { route: `posts/${post.fields.slug}`, payload: post }
+          })
+        ]
+      })
     }
   },
   /*
