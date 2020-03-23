@@ -56,12 +56,6 @@ import { mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 
 export default {
-  computed: {
-    ...mapGetters(['setEyeCatch']), // 追記
-    linkTo: () => (obj) => {
-      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
-    }
-  },
   async asyncData({ env }) {
     let posts = []
     await client
@@ -72,6 +66,12 @@ export default {
       .then((res) => (posts = res.items))
       .catch(console.error)
     return { posts }
+  },
+  computed: {
+    ...mapGetters(['setEyeCatch']),
+    linkTo: () => (obj) => {
+      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
+    }
   }
 }
 </script>

@@ -34,9 +34,6 @@ import { mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 
 export default {
-  computed: {
-    ...mapGetters(['setEyeCatch'])
-  },
   async asyncData({ env, params }) {
     let currentPost = null
     await client
@@ -48,6 +45,9 @@ export default {
       .catch(console.error)
 
     return { currentPost }
+  },
+  computed: {
+    ...mapGetters(['setEyeCatch'])
   }
 }
 </script>
