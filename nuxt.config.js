@@ -29,6 +29,9 @@ export default {
    ** Global CSS
    */
   css: [],
+  router: {
+    middleware: ['getContentful']
+  },
   /*
    ** Plugins to load before mounting the App
    */
