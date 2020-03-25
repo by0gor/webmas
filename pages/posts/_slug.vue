@@ -1,45 +1,47 @@
 <template>
   <v-container fluid>
     <breadcrumbs :add-items="addBreads" />
-    <!-- <template v-if="currentPost"> -->
-    {{ currentPost.fields.title }}
-    <v-img
-      :src="setEyeCatch(currentPost).url"
-      :alt="setEyeCatch(currentPost).title"
-      :aspect-ratio="40 / 21"
-      width="700"
-      height="400"
-      class="mx-auto"
-    />
-    {{ currentPost.fields.publishDate }}<br />
-    {{ currentPost.fields.body }}
-    <!-- <v-breadcrumbs :items="breadcrumbs">
-      <template #divider>
-        <v-icon>mdi-chevron-right</v-icon>
-      </template>
-    </v-breadcrumbs> -->
-    <!-- </template> -->
+    <template v-if="currentPost">
+      {{ currentPost.fields.title }}
+      <v-img
+        :src="setEyeCatch(currentPost).url"
+        :alt="setEyeCatch(currentPost).title"
+        :aspect-ratio="40 / 21"
+        width="700"
+        height="400"
+        class="mx-auto"
+      />
+      {{ currentPost.fields.publishDate }}
+      <br />
+      {{ currentPost.fields.body }}
+      <client-only>
+        <share-btns :page-title="currentPost.fields.title" />
+        <follow-btns />
+      </client-only>
+    </template>
 
-    <!-- <template v-else>
-      お探しの記事は見つかりませんでした。
-    </template> -->
+    <template v-else>お探しの記事は見つかりませんでした。</template>
 
-    <!-- <div>
+    <div>
       <v-btn outlined color="primary" to="/">
-        <v-icon size="16">
-          fas fa-angle-double-left
-        </v-icon>
+        <v-icon size="16">fas fa-angle-double-left</v-icon>
         <span class="ml-1">ホームへ戻る</span>
       </v-btn>
-    </div> -->
+    </div>
   </v-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import shareBtns from '~/components/ui/shareBtns'
+import followBtns from '~/components/ui/followBtns'
 // import client from '~/plugins/contentful'
 
 export default {
+  components: {
+    shareBtns,
+    followBtns
+  },
   // async asyncData({ env, params }) {
   //   let currentPost = null
   //   await client
