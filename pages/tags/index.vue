@@ -6,7 +6,7 @@
         {{ tag.fields.name }}
         {{ postCount(tag) }}
       </nuxt-link>
-    </div> -->
+    </div>-->
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="10" md="8">
@@ -33,9 +33,7 @@
               @page-count="pageCount = $event"
             >
               <template v-slot:item.fields.name="{ item }">
-                <v-icon size="18">
-                  mdi-tag-outline
-                </v-icon>
+                <v-icon size="18">mdi-tag-outline</v-icon>
 
                 <nuxt-link :to="linkTo('tags', item)">
                   {{ item.fields.name }}

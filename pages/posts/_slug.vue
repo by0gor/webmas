@@ -11,9 +11,12 @@
         height="400"
         class="mx-auto"
       />
+      <!-- {{ dateFormat(currentPost.fields.publishDate, 'YYYY/MM/DD hh:mm:ss') }} -->
       {{ currentPost.fields.publishDate }}
       <br />
-      {{ currentPost.fields.body }}
+      <div v-html="$md.render(currentPost.fields.body)">
+        {{ currentPost.fields.body }}
+      </div>
       <client-only>
         <share-btns :page-title="currentPost.fields.title" />
         <follow-btns />
@@ -33,8 +36,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import format from 'date-fns/format'
+import ja from 'date-fns/locale/ja'
+import parse from 'date-fns/parse'
 import shareBtns from '~/components/ui/shareBtns'
 import followBtns from '~/components/ui/followBtns'
+import Prism from '~/plugins/prism'
+
 // import client from '~/plugins/contentful'
 
 export default {
@@ -83,6 +91,19 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    Prism.highlightAll()
+  },
+  methods: {
+    dateFormat: (date = new Date(), formatStr) => {
+      return format(parse(date), formatStr, { locale: ja })
+    }
   }
 }
 </script>
+<style>
+code {
+  box-shadow: none !important;
+}
+</style>

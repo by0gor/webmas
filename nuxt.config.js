@@ -35,7 +35,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['plugins/vuetify', 'plugins/contentful', 'plugins/components'],
+  plugins: [
+    'plugins/vuetify',
+    'plugins/contentful',
+    'plugins/components',
+    '~/plugins/prism'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -52,8 +57,19 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true, // $mdを利用してmarkdownをhtmlにレンダリングする
+    breaks: true, // 改行コードを<br>に変換する
+    html: true, // HTML タグを有効にする
+    linkify: true, // URLに似たテキストをリンクに自動変換する
+    typography: true // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
+    // use: [
+    //   'markdown-it-toc' // 目次を作るためのライブラリ。別途インストールが必要
+    // ]
+  },
   env: {
     // contentful
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,

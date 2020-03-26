@@ -35,7 +35,7 @@
               </v-img>
 
               <v-card-title>
-                <nuxt-link :to="linkTo('posts', post)">{{
+                <nuxt-link :to="linkTo('posts', post)" class="top-title">{{
                   post.fields.title
                 }}</nuxt-link>
               </v-card-title>
@@ -45,11 +45,11 @@
                 <span :is="draftChip(post)" />
               </v-card-text>
 
-              <v-list-item three-line style="min-height: unset;">
+              <!-- <v-list-item three-line style="min-height: unset;">
                 <v-list-item-subtitle>{{
                   post.fields.body
                 }}</v-list-item-subtitle>
-              </v-list-item>
+              </v-list-item> -->
 
               <!-- <v-card-text style="height: 64px;"> -->
               <v-card-text>
@@ -126,3 +126,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.top-title {
+  text-decoration: none;
+}
+</style>
