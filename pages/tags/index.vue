@@ -1,12 +1,6 @@
 <template>
   <div>
     <breadcrumbs :add-items="addBreads" />
-    <!-- <div v-for="(tag, i) in tags" :key="i">
-      <nuxt-link :to="linkTo('tags', tag)">
-        {{ tag.fields.name }}
-        {{ postCount(tag) }}
-      </nuxt-link>
-    </div>-->
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="10" md="8">
@@ -20,7 +14,6 @@
                 hide-details
               />
             </v-card-title>
-
             <v-data-table
               :headers="headers"
               :items="tableItems"
@@ -64,7 +57,7 @@ export default {
   data: () => ({
     search: '',
     sortBy: 'fields.postcount',
-    itemsPerPage: 20,
+    itemsPerPage: 5,
     page: 1,
     pageCount: 0,
     totalVisible: 7,
@@ -113,3 +106,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#app {
+  background: #fafafa;
+  .top-title {
+    text-decoration: none;
+  }
+}
+</style>

@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <v-btn outlined color="twitter" @click="windowOpen(twitterLink)">
-      <v-icon aria-hidden="false" aria-label="Twitter" class="mr-1">
-        fab fa-twitter
-      </v-icon>
-      フォローする
-    </v-btn>
-  </div>
+  <v-btn outlined color="twitter" class="ma-1" @click="windowOpen(twitterLink)">
+    <v-icon aria-hidden="false" aria-label="Twitter" class="mr-1">
+      fab fa-twitter
+    </v-icon>
+    <b>Follow</b>
+  </v-btn>
 </template>
 
 <script>

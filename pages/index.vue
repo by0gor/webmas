@@ -1,98 +1,125 @@
 <template>
-  <v-container fluid>
-    <v-row justify="center">
-      <v-col cols="12" sm="11" md="10" xl="8">
-        <v-row v-if="posts.length">
-          <v-col
-            v-for="(post, i) in posts"
-            :key="i"
-            cols="12"
-            sm="6"
-            lg="4"
-            xl="3"
-          >
-            <v-card max-width="400" class="mx-auto">
-              <v-img
-                :src="setEyeCatch(post).url"
-                :alt="setEyeCatch(post).title"
-                :aspect-ratio="40 / 21"
-                max-height="200"
-                class="white--text"
-              >
-                <v-card-text>
-                  <v-chip
-                    small
-                    dark
-                    :color="categoryColor(post.fields.category)"
-                    :to="linkTo('categories', post.fields.category)"
-                    class="font-weight-bold"
-                    >{{ post.fields.category.fields.name }}</v-chip
-                  >
-                </v-card-text>
-                <!-- <v-card-title class="align-end fill-height font-weight-bold">
+  <div>
+    <Header />
+    <Header2 />
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col cols="12" sm="11" md="10" xl="8">
+          <v-row v-if="posts.length">
+            <v-col
+              v-for="(post, i) in posts"
+              :key="i"
+              cols="12"
+              sm="6"
+              lg="4"
+              xl="3"
+            >
+              <v-card max-width="400" class="mx-auto">
+                <v-img
+                  :src="setEyeCatch(post).url"
+                  :alt="setEyeCatch(post).title"
+                  :aspect-ratio="40 / 21"
+                  max-height="200"
+                  class="white--text"
+                >
+                  <v-card-text>
+                    <v-chip
+                      small
+                      dark
+                      :color="categoryColor(post.fields.category)"
+                      :to="linkTo('categories', post.fields.category)"
+                      class="font-weight-bold"
+                      >{{ post.fields.category.fields.name }}</v-chip
+                    >
+                  </v-card-text>
+                  <!-- <v-card-title class="align-end fill-height font-weight-bold">
                   {{ post.fields.title }}
-                </v-card-title>-->
-              </v-img>
+                  </v-card-title>-->
+                </v-img>
 
-              <v-card-title>
-                <nuxt-link :to="linkTo('posts', post)" class="top-title">{{
-                  post.fields.title
-                }}</nuxt-link>
-              </v-card-title>
+                <v-card-title>
+                  <nuxt-link :to="linkTo('posts', post)" class="top-title">{{
+                    post.fields.title
+                  }}</nuxt-link>
+                </v-card-title>
 
-              <v-card-text>
-                {{ post.fields.publishDate }}
-                <span :is="draftChip(post)" />
-              </v-card-text>
+                <v-card-text>
+                  最終更新:
+                  {{ post.fields.publishDate.slice(0, -12) | JPdate }}
+                  <span :is="draftChip(post)" />
+                </v-card-text>
 
-              <!-- <v-list-item three-line style="min-height: unset;">
+                <!-- <v-list-item three-line style="min-height: unset;">
                 <v-list-item-subtitle>{{
                   post.fields.body
                 }}</v-list-item-subtitle>
-              </v-list-item> -->
+                </v-list-item>-->
 
-              <!-- <v-card-text style="height: 64px;"> -->
-              <v-card-text>
-                <template v-if="post.fields.tags">
-                  <v-chip
-                    v-for="tag in post.fields.tags"
-                    :key="tag.sys.id"
-                    :to="linkTo('tags', tag)"
-                    small
-                    label
-                    outlined
-                    class="ma-1"
+                <!-- <v-card-text style="height: 64px;"> -->
+                <v-card-text>
+                  <template v-if="post.fields.tags">
+                    <v-chip
+                      v-for="tag in post.fields.tags"
+                      :key="tag.sys.id"
+                      :to="linkTo('tags', tag)"
+                      small
+                      label
+                      outlined
+                      class="ma-1"
+                    >
+                      <v-icon left size="18" color="grey">mdi-label</v-icon>
+                      {{ tag.fields.name }}
+                    </v-chip>
+                  </template>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text color="primary" :to="linkTo('posts', post)"
+                    >この記事をみる</v-btn
                   >
-                    <v-icon left size="18" color="grey">mdi-label</v-icon>
-                    {{ tag.fields.name }}
-                  </v-chip>
-                </template>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer />
-                <v-btn text color="primary" :to="linkTo('posts', post)"
-                  >この記事をみる</v-btn
-                >
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <div v-else class="text-center">投稿された記事はありません。</div>
-      </v-col>
-    </v-row>
-  </v-container>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+          <div v-else class="text-center">投稿された記事はありません。</div>
+        </v-col>
+      </v-row>
+    </v-container>
+    <BottomNavi />
+    <Footer />
+  </div>
 </template>
 
 <script>
 // import client from '~/plugins/contentful'
 import { mapState, mapGetters } from 'vuex'
+import Header from '~/components/contents/Header'
+import Header2 from '~/components/contents/Header2'
+import BottomNavi from '~/components/contents/BottomNavi'
+import Footer from '~/components/contents/Footer'
 import draftChip from '~/components/posts/draftChip'
 
 export default {
   components: {
     // followBtns,
+    Header,
+    Header2,
+    BottomNavi,
+    Footer,
     draftChip // 追記
+  },
+  filters: {
+    JPdate: (value) => {
+      return (
+        value.slice(0, 4) +
+        '年' +
+        value.slice(5, 7) +
+        '月' +
+        value.slice(8, 10) +
+        '日'
+      )
+    }
   },
   // async asyncData({ env }) {
   //   let posts = []
@@ -127,8 +154,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.top-title {
-  text-decoration: none;
+<style lang="scss">
+#app {
+  background: #fafafa;
+  .top-title {
+    text-decoration: none;
+  }
 }
 </style>

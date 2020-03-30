@@ -40,6 +40,7 @@ export default {
     'plugins/contentful',
     'plugins/components',
     '~/plugins/prism'
+    // '~/plugins/markdownit'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -58,17 +59,26 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    scss: [
+      '@/assets/base/_common.scss',
+      '@/assets/base/_mixin.scss',
+      '@/assets/base/_setting.scss'
+    ]
+  },
   markdownit: {
     injected: true, // $mdを利用してmarkdownをhtmlにレンダリングする
     breaks: true, // 改行コードを<br>に変換する
     html: true, // HTML タグを有効にする
     linkify: true, // URLに似たテキストをリンクに自動変換する
-    typography: true // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
-    // use: [
-    //   'markdown-it-toc' // 目次を作るためのライブラリ。別途インストールが必要
-    // ]
+    typography: true, // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
+    use: [
+      'markdown-it-table-of-contents',
+      'markdown-it-anchor' // 目次を作るためのライブラリ。別途インストールが必要
+    ]
   },
   env: {
     // contentful
@@ -91,7 +101,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -101,6 +111,10 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
+        },
+        light: {
+          twitter: '#55acee',
+          facebook: '#3b5998'
         }
       }
     }

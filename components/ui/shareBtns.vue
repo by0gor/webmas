@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <v-btn dark color="twitter" @click="windowOpen(twitterShareLink)">
-      <v-icon aria-hidden="false" aria-label="Twitter" class="mr-1">
-        fab fa-twitter
-      </v-icon>
-      <b>Share</b>
-    </v-btn>
-  </div>
+  <v-btn
+    outlined
+    color="twitter"
+    class="ma-1"
+    @click="windowOpen(twitterShareLink)"
+  >
+    <v-icon aria-hidden="false" aria-label="Twitter" class="mr-1">
+      fab fa-twitter
+    </v-icon>
+    <b>Share</b>
+  </v-btn>
 </template>
 
 <script>
