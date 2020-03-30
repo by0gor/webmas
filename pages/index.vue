@@ -44,7 +44,7 @@
                 </v-card-title>
 
                 <v-card-text>
-                  最終更新日:
+                  最終更新:
                   {{ post.fields.publishDate.slice(0, -12) | JPdate }}
                   <span :is="draftChip(post)" />
                 </v-card-text>
