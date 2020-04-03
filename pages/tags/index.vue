@@ -3,7 +3,7 @@
     <Header />
     <Header2 />
     <breadcrumbs :add-items="addBreads" />
-    <v-container>
+    <v-container class="mh500">
       <v-row justify="center">
         <v-col cols="12" sm="10" md="8">
           <v-card>
@@ -155,6 +155,12 @@ export default {
   background: #fafafa;
   .top-title {
     text-decoration: none;
+  }
+  .mh500 {
+    min-height: 600px;
+    @include breakpoint-min(md) {
+      min-height: initial;
+    }
   }
 }
 </style>
