@@ -136,7 +136,7 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content:
-            'https://images.ctfassets.net/a7hf2739g2m5/33LWL587WNNFacRWt52uBF/f70f48d06c854bd6e8220edd3baa0cc0/ogp.jpg'
+            'https://images.ctfassets.net/t8ofz341rbrw/72Ohpc9TEkf1rSq28syIXj/4439e846f28deaf06375574824729a58/ogp.jpg'
         },
         {
           hid: 'og:description',

@@ -64,11 +64,13 @@ $l-orange: #eaac9d;
     display: flex;
     width: 100%;
     height: 100%;
+    list-style: none;
     position: relative;
     padding: 0;
 
     li {
       flex-basis: 20%;
+      list-style: none;
       &:nth-of-type(1) a {
         background: $red;
         &:before {
