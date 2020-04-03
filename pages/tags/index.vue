@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Header />
+    <Header2 />
     <breadcrumbs :add-items="addBreads" />
     <v-container>
       <v-row justify="center">
@@ -47,13 +49,25 @@
         </v-col>
       </v-row>
     </v-container>
+    <BottomNavi />
+    <Footer />
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import Header from '~/components/contents/Header'
+import Header2 from '~/components/contents/Header2'
+import BottomNavi from '~/components/contents/BottomNavi'
+import Footer from '~/components/contents/Footer'
 
 export default {
+  components: {
+    Header,
+    Header2,
+    BottomNavi,
+    Footer
+  },
   data: () => ({
     search: '',
     sortBy: 'fields.postcount',
@@ -102,6 +116,35 @@ export default {
         tags.push(tag)
       }
       return tags
+    }
+  },
+  head() {
+    return {
+      title: 'webmas!｜タグ一覧ページ',
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'webmas!｜タグ一覧ページ'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://blissful-engelbart-6c05e9.netlify.com/tags/'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://images.ctfassets.net/a7hf2739g2m5/33LWL587WNNFacRWt52uBF/f70f48d06c854bd6e8220edd3baa0cc0/ogp.jpg'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'xR関連情報を中心に、夢と希望に溢れる多様な「ミライ」を技術系解説記事と併せてお届けします！主なテーマはxR, Unity, C#, 競プロ(AtCoder), web制作/運用/SEO/コンサルなど。日々の気になるトピックも随時PickUp★ twitterはこちら→@NadjaHarold'
+        }
+      ]
     }
   }
 }

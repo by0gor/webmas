@@ -143,12 +143,43 @@ export default {
         switch (category.fields.name) {
           case 'Nuxt.js':
             return '#236244'
+          case 'Unity':
+            return '#d13b40'
+          case 'JavaScript':
+            return '#34558b'
+          case 'Python':
+            return '#4ec5a5'
           case 'Untitled':
             return 'primary'
           default:
             return 'grey darken-3'
         }
       }
+    }
+  },
+  head() {
+    return {
+      title: 'webmas!',
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://images.ctfassets.net/a7hf2739g2m5/33LWL587WNNFacRWt52uBF/f70f48d06c854bd6e8220edd3baa0cc0/ogp.jpg'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://blissful-engelbart-6c05e9.netlify.com/'
+        },
+        { hid: 'og:title', property: 'og:title', content: ' webmas!' },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'xR関連情報を中心に、夢と希望に溢れる多様な「ミライ」を技術系解説記事と併せてお届けします！主なテーマはxR, Unity, C#, 競プロ(AtCoder), web制作/運用/SEO/コンサルなど。日々の気になるトピックも随時PickUp★ twitterはこちら→@NadjaHarold'
+        }
+      ]
     }
   }
 }

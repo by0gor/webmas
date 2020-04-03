@@ -7,17 +7,17 @@
         </a>
       </li>
       <li>
-        <a href="/profile/">
+        <a href="https://harold.tokyo/profile/" target="_blank">
           <span>Profile</span>
         </a>
       </li>
       <li>
-        <a href="/codings/">
+        <a href="https://harold.tokyo/codings/" target="_blank">
           <span>Coding</span>
         </a>
       </li>
       <li>
-        <a href="/notes/">
+        <a href="https://harold.tokyo/notes/" target="_blank">
           <span>Note</span>
         </a>
       </li>

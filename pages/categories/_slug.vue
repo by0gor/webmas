@@ -122,6 +122,37 @@ export default {
         }
       ]
     }
+  },
+  head() {
+    return {
+      title: 'webmas!｜' + this.category.fields.name + 'に関する記事',
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'webmas!｜' + this.category.fields.name + 'に関する記事'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content:
+            'https://blissful-engelbart-6c05e9.netlify.com/categories/' +
+            this.category
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://images.ctfassets.net/a7hf2739g2m5/33LWL587WNNFacRWt52uBF/f70f48d06c854bd6e8220edd3baa0cc0/ogp.jpg'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'xR関連情報を中心に、夢と希望に溢れる多様な「ミライ」を技術系解説記事と併せてお届けします！主なテーマはxR, Unity, C#, 競プロ(AtCoder), web制作/運用/SEO/コンサルなど。日々の気になるトピックも随時PickUp★ twitterはこちら→@NadjaHarold'
+        }
+      ]
+    }
   }
 }
 </script>

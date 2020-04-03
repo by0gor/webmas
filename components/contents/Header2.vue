@@ -11,28 +11,28 @@
         <nav class="h-nav">
           <ul class="h-navlist">
             <li>
-              <nuxt-link to="/profile">
+              <a href="https://harold.tokyo/profile/" target="_blank">
                 <span class="nav-en">Profile</span>
                 <span class="nav-jp">プロフィール</span>
-              </nuxt-link>
+              </a>
             </li>
             <li>
-              <nuxt-link to="/about">
+              <a href="https://harold.tokyo/about" target="_blank">
                 <span class="nav-en">About</span>
                 <span class="nav-jp">webmas!について</span>
-              </nuxt-link>
+              </a>
             </li>
             <li>
-              <nuxt-link to="/codings">
+              <a href="https://harold.tokyo/codings" target="_blank">
                 <span class="nav-en">Coding</span>
                 <span class="nav-jp">技術系の記事</span>
-              </nuxt-link>
+              </a>
             </li>
             <li>
-              <nuxt-link to="/notes">
+              <a href="https://harold.tokyo/notes" target="_blank">
                 <span class="nav-en">Note</span>
                 <span class="nav-jp">気になるあれこれ</span>
-              </nuxt-link>
+              </a>
             </li>
           </ul>
         </nav>

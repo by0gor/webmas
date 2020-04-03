@@ -145,6 +145,33 @@ export default {
   },
   mounted() {
     Prism.highlightAll()
+  },
+  head() {
+    return {
+      title: 'webmas!｜' + this.currentPost.fields.title,
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'webmas!｜' + this.currentPost.fields.title
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.setEyeCatch(this.currentPost).url
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: this.currentPost.url
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.currentPost.fields.description
+        }
+      ]
+    }
   }
   // created: () => {
   //   this.renderer = new currentPost.fields.body.Renderer()
