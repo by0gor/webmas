@@ -178,7 +178,10 @@ export default {
           property: 'og:description',
           content:
             'xR関連情報を中心に、夢と希望に溢れる多様な「ミライ」を技術系解説記事と併せてお届けします！主なテーマはxR, Unity, C#, 競プロ(AtCoder), web制作/運用/SEO/コンサルなど。日々の気になるトピックも随時PickUp★ twitterはこちら→@NadjaHarold'
-        }
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@NadjaHarold' },
+        { name: 'twitter:creator', content: '@NadjaHarold' }
       ]
     }
   }

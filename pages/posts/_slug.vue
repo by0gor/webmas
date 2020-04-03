@@ -169,7 +169,10 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content: this.currentPost.fields.description
-        }
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@NadjaHarold' },
+        { name: 'twitter:creator', content: '@NadjaHarold' }
       ]
     }
   }
