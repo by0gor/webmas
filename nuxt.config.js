@@ -19,7 +19,14 @@ export default {
         content: process.env.npm_package_description || ''
       },
       { hid: 'og:site_name', property: 'og:site_name', content: 'webmas!' },
-      { hid: 'og:type', property: 'og:type', content: 'website' }
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@NadjaHarold' },
+      { name: 'twitter:creator', content: '@NadjaHarold' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
