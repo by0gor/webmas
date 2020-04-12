@@ -27,6 +27,7 @@ export default {}
     bottom: 60px;
   }
   @include breakpoint-min(sm) {
+    left: initial;
     right: 20px;
     bottom: 50px;
   }
