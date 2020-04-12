@@ -10,26 +10,30 @@ export default {}
 </script>
 
 <style lang="scss">
-.topBtn {
-  position: fixed;
-  bottom: 40px;
-  right: 60px;
-  @include breakpoint-min(xl) {
+#app {
+  .topBtn {
     position: fixed;
     bottom: 40px;
-    left: 800px;
-    right: initial;
-    z-index: 0;
-  }
-  @include breakpoint-min(lg) {
-    left: initial;
-    right: 100px;
-    bottom: 60px;
-  }
-  @include breakpoint-min(sm) {
-    left: initial;
-    right: 20px;
-    bottom: 50px;
+    right: 60px;
+    @include breakpoint-min(xl) {
+      position: fixed;
+      bottom: 40px;
+      left: 800px;
+      right: initial;
+      z-index: 0;
+    }
+    @include breakpoint-min(lg) {
+      // position: fixed;
+      left: initial;
+      right: 100px;
+      bottom: 60px;
+    }
+    @include breakpoint-min(sm) {
+      // position: fixed;
+      left: initial;
+      right: 20px;
+      bottom: 50px;
+    }
   }
 }
 </style>
