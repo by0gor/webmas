@@ -46,7 +46,7 @@
       </v-content>
     </v-container>
     <topBtn />
-    <BottomNavi />
+    <!-- <BottomNavi /> -->
     <Footer />
   </div>
 </template>
@@ -55,7 +55,7 @@
 import { mapGetters } from 'vuex'
 import Header from '~/components/contents/Header'
 import Header2 from '~/components/contents/Header2'
-import BottomNavi from '~/components/contents/BottomNavi'
+// import BottomNavi from '~/components/contents/BottomNavi'
 import Footer from '~/components/contents/Footer'
 import topBtn from '~/components/ui/topBtn'
 import shareBtns from '~/components/ui/shareBtns'
@@ -67,7 +67,7 @@ export default {
   components: {
     Header,
     Header2,
-    BottomNavi,
+    // BottomNavi,
     Footer,
     topBtn,
     shareBtns,

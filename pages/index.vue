@@ -86,7 +86,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <BottomNavi />
+    <!-- <BottomNavi /> -->
     <Footer />
   </div>
 </template>
@@ -96,7 +96,7 @@
 import { mapState, mapGetters } from 'vuex'
 import Header from '~/components/contents/Header'
 import Header2 from '~/components/contents/Header2'
-import BottomNavi from '~/components/contents/BottomNavi'
+// import BottomNavi from '~/components/contents/BottomNavi'
 import Footer from '~/components/contents/Footer'
 import draftChip from '~/components/posts/draftChip'
 
@@ -105,7 +105,7 @@ export default {
     // followBtns,
     Header,
     Header2,
-    BottomNavi,
+    // BottomNavi,
     Footer,
     draftChip // 追記
   },

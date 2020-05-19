@@ -65,7 +65,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <BottomNavi />
+    <!-- <BottomNavi /> -->
     <Footer />
   </div>
 </template>
@@ -74,14 +74,14 @@
 import { mapGetters } from 'vuex'
 import Header from '~/components/contents/Header'
 import Header2 from '~/components/contents/Header2'
-import BottomNavi from '~/components/contents/BottomNavi'
+// import BottomNavi from '~/components/contents/BottomNavi'
 import Footer from '~/components/contents/Footer'
 
 export default {
   components: {
     Header,
     Header2,
-    BottomNavi,
+    // BottomNavi,
     Footer
   },
   filters: {
