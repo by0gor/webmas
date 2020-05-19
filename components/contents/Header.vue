@@ -7,7 +7,7 @@
           <img src="/twitter_icon.jpg" />
         </p>
         <div class="author-box">
-          <h2>tech blog powered by Nuxt.js</h2>
+          <h2>My tech blog powered by Nuxt.js</h2>
           <client-only>
             <follow-btns />
           </client-only>
